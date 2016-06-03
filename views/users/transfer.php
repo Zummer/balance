@@ -14,6 +14,18 @@ use kartik\checkbox\CheckboxX;
 $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Users', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+
+$this->registerJs('var change = function(event) {
+                var el = $(event.target);
+                var label = $("label[for=" + el.attr("id") + "]");
+                if(el.val() == "1"){
+                    label.text("Sum Validation Enabled");
+                    label.css( "color", "black");
+                }else if(el.val() == "0"){
+                    label.text("Sum Validation Disabled");
+                    label.css( "color", "red");
+                }
+            }');
 ?>
 <div class="users-view">
 
@@ -56,18 +68,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'threeState' => false,
             'size'=>'sm',
         ],
-        'pluginEvents' => ['change' => 'function(event) {
-                var el = $(event.target);
-                var label = $("label[for=" + el.attr("id") + "]");
-                if(el.val() == "1"){
-                    label.text("Sum Validation Enabled");
-                    label.css( "color", "black");
-                }else if(el.val() == "0"){
-                    label.text("Sum Validation Disabled");
-                    label.css( "color", "red");
-                }
-            }',
-        ],
+        'pluginEvents' => ['change' => 'change'],
     ])->label(false) ?>
 
     <div class="form-group">
