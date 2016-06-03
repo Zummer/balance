@@ -8,6 +8,7 @@ $baseUrl = str_replace(basename(dirname(__DIR__)). '/web', '', (new Request)->ge
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
+    'homeUrl'=>'/',
     'bootstrap' => [
         'log',
         'app\bootstraps\Bootstrap',
