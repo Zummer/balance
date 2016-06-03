@@ -14,14 +14,15 @@ $users = \yii\helpers\ArrayHelper::map($dataProvider->getModels(), 'id', 'name')
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-
     <p>
         <?php foreach ($users as $index => $name) {
-            echo Html::a($name, ['view', 'id' => $index], ['class' => 'btn btn-primary']);
+            echo Html::a($name, ['view', 'id' => $index], [
+                'class' => 'btn btn-primary',
+                'style' => ['margin' => '5px']
+            ]);
         } ?>
         <?= Html::a('Create new user', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
