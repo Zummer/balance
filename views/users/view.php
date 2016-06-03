@@ -41,6 +41,10 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
     <p>
-        <?= Html::a('Create transfer', ['transfer-create', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
-    </p>
+
+        <?php if ($model->balance > 0): ?>
+            <?= Html::a('Create transfer', ['transfer-create', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
+        <?php else: ?>
+            <?= Html::a('Create transfer', ['transfer-create', 'id' => $model->id], ['class' => 'btn btn-success', 'disabled' => 'disabled']) ?>
+        <?php endif; ?>
 </div>

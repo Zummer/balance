@@ -59,7 +59,7 @@ class TransferForm extends Model
                 'when' => $this->checkValidation(), 'whenClient' => self::WHEN_CLIENT],
             ['sum', 'compare', 'compareValue' => $this->getBalance($this->user_from_id), 'operator' => '<=',
                 'when' => $this->checkValidation(), 'whenClient' => self::WHEN_CLIENT],
-//            [['validation'], 'boolean'],
+            [['validation'], 'boolean'],
 //            ['validation', 'compare', 'compareValue' => 4, 'operator' => '==']
         ];
     }
