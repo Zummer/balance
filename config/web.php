@@ -3,7 +3,7 @@
 $params = require(__DIR__ . '/params.php');
 
 use \yii\web\Request;
-$baseUrl = str_replace('/web', '', (new Request)->getBaseUrl());
+$baseUrl = str_replace(basename(dirname(__DIR__)). '/web', '', (new Request)->getBaseUrl());
 
 $config = [
     'id' => 'basic',
